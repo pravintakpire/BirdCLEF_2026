@@ -28,6 +28,9 @@ submissions/
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
+# Secrets
+.env
+
 # IDE
 .idea/
 .vscode/
