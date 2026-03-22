@@ -16,8 +16,8 @@ Kaggle competition: [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdcle
 # Install dependencies
 uv sync
 
-# Download competition data (requires Kaggle API key in ~/.kaggle/kaggle.json)
-bash scripts/download_data.sh
+# Download competition data (requires Kaggle API key in %USERPROFILE%\.kaggle\kaggle.json)
+powershell -ExecutionPolicy Bypass -File scripts\download_data.ps1
 ```
 
 ---
