@@ -1,0 +1,33 @@
+# BirdCLEF 2026 — Baseline Config
+
+# Audio
+sr: 32000
+duration: 5.0          # seconds per training clip
+n_mels: 128
+n_fft: 1024
+hop_length: 320
+fmin: 20.0
+fmax: 16000.0
+
+# Inference
+inference_step: 5.0    # sliding window step in seconds
+
+# Model
+model_name: efficientnet_b0
+pretrained: true
+
+# Training
+epochs: 30
+batch_size: 32
+lr: 1.0e-3
+weight_decay: 1.0e-4
+num_workers: 4
+seed: 42
+val_fold: 0            # which fold to use as validation
+
+# Paths (relative to project root)
+train_csv: data/raw/train_metadata.csv
+train_audio_dir: data/raw/train_audio
+test_soundscapes_dir: data/raw/test_soundscapes
+output_dir: outputs/baseline
+submission_path: submissions/baseline_submission.csv

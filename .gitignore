@@ -8,3 +8,26 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Data (large files, not tracked)
+data/
+outputs/
+
+# Model checkpoints
+*.ckpt
+*.pth
+*.pt
+
+# Experiment tracking
+wandb/
+
+# Submission files
+submissions/
+*.csv
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
