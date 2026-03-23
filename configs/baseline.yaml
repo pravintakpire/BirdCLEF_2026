@@ -17,11 +17,11 @@ model_name: efficientnet_b0
 pretrained: true
 
 # Training
-epochs: 30
-batch_size: 32
+epochs: 15
+batch_size: 64
 lr: 1.0e-3
 weight_decay: 1.0e-4
-num_workers: 4
+num_workers: 0         # 0 = main process only (safe on macOS, avoids fork issues)
 seed: 42
 val_fold: 0            # which fold to use as validation
 
@@ -29,5 +29,6 @@ val_fold: 0            # which fold to use as validation
 train_csv: data/raw/train.csv
 train_audio_dir: data/raw/train_audio
 test_soundscapes_dir: data/raw/test_soundscapes
+mel_cache_dir: data/processed/mels   # pre-computed by scripts/precompute_mels.py
 output_dir: outputs/baseline
 submission_path: submissions/baseline_submission.csv

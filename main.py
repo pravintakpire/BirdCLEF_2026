@@ -38,8 +38,9 @@ def main():
         splits = list(skf.split(df, df["primary_label"]))
         train_idx, val_idx = splits[config["val_fold"]]
 
-        train_ds = BirdCLEFDataset(df.iloc[train_idx], audio_dir, species_list, config, train=True)
-        val_ds = BirdCLEFDataset(df.iloc[val_idx], audio_dir, species_list, config, train=False)
+        mel_cache_dir = ROOT / config["mel_cache_dir"] if config.get("mel_cache_dir") else None
+        train_ds = BirdCLEFDataset(df.iloc[train_idx], audio_dir, species_list, config, train=True, mel_cache_dir=mel_cache_dir)
+        val_ds = BirdCLEFDataset(df.iloc[val_idx], audio_dir, species_list, config, train=False, mel_cache_dir=mel_cache_dir)
 
         train_loader = DataLoader(train_ds, batch_size=config["batch_size"], shuffle=True, num_workers=config["num_workers"])
         val_loader = DataLoader(val_ds, batch_size=config["batch_size"], shuffle=False, num_workers=config["num_workers"])
