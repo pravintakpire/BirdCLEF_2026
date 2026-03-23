@@ -26,7 +26,7 @@ seed: 42
 val_fold: 0            # which fold to use as validation
 
 # Paths (relative to project root)
-train_csv: data/raw/train_metadata.csv
+train_csv: data/raw/train.csv
 train_audio_dir: data/raw/train_audio
 test_soundscapes_dir: data/raw/test_soundscapes
 output_dir: outputs/baseline
