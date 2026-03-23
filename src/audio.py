@@ -1,9 +1,15 @@
 import numpy as np
+import soundfile as sf
 import librosa
 
 
 def load_audio(path: str, sr: int = 32000) -> tuple[np.ndarray, int]:
-    waveform, _ = librosa.load(path, sr=sr, mono=True)
+    """Load audio using soundfile (fast, no resampling overhead when native sr matches)."""
+    waveform, native_sr = sf.read(path, dtype='float32')
+    if waveform.ndim > 1:
+        waveform = waveform[:, 0]
+    if native_sr != sr:
+        waveform = librosa.resample(waveform, orig_sr=native_sr, target_sr=sr)
     return waveform, sr
 
 
